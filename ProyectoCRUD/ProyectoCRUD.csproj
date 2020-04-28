@@ -127,6 +127,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PremioController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -135,11 +136,65 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BDParcial2.Context.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\BDParcial2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BDParcial2.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\BDParcial2.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>BDParcial2.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\sysdiagrams.cs">
+      <DependentUpon>BDParcial2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TB_Clientes.cs">
+      <DependentUpon>BDParcial2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TB_DetallePedidos.cs">
+      <DependentUpon>BDParcial2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TB_Ingredientes.cs">
+      <DependentUpon>BDParcial2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TB_Inventario.cs">
+      <DependentUpon>BDParcial2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TB_Mantenimientos.cs">
+      <DependentUpon>BDParcial2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TB_Modo.cs">
+      <DependentUpon>BDParcial2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TB_Pedidos.cs">
+      <DependentUpon>BDParcial2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TB_Precios.cs">
+      <DependentUpon>BDParcial2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TB_Premios.cs">
+      <DependentUpon>BDParcial2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TB_Productos.cs">
+      <DependentUpon>BDParcial2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TB_Repartidores.cs">
+      <DependentUpon>BDParcial2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TB_Scooter.cs">
+      <DependentUpon>BDParcial2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TB_Tamanio.cs">
+      <DependentUpon>BDParcial2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TB_TipoProductos.cs">
+      <DependentUpon>BDParcial2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TB_Ventas.cs">
+      <DependentUpon>BDParcial2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ViewModels\ListarPremios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -154,6 +209,12 @@
     <Content Include="Models\BDParcial2.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>BDParcial2.Context.cs</LastGenOutput>
+      <DependentUpon>BDParcial2.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\BDParcial2.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BDParcial2.edmx</DependentUpon>
+      <LastGenOutput>BDParcial2.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -161,9 +222,9 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>BDParcial2.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Models\BDParcial2.edmx.diagram">
+    <Content Include="Models\BDParcial2.edmx.diagram">
       <DependentUpon>BDParcial2.edmx</DependentUpon>
-    </None>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -189,6 +250,7 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Premio\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
