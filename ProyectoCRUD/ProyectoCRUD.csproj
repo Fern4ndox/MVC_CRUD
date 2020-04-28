@@ -258,6 +258,7 @@
     <Content Include="Views\Premio\Nuevo.cshtml" />
     <Content Include="Views\TipoProducto\Index.cshtml" />
     <Content Include="Views\TipoProducto\Nuevo.cshtml" />
+    <Content Include="Views\TipoProducto\Editar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
