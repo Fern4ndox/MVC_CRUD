@@ -126,9 +126,11 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ClienteController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MatenimientoController.cs" />
     <Compile Include="Controllers\ModoController.cs" />
+    <Compile Include="Controllers\PrecioController.cs" />
     <Compile Include="Controllers\PremioController.cs" />
     <Compile Include="Controllers\TipoProductoController.cs" />
     <Compile Include="Global.asax.cs">
@@ -198,10 +200,14 @@
       <DependentUpon>DB_Parcial2.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ViewModels\ListarMantenimiento.cs" />
+    <Compile Include="Models\ViewModels\ListarCliente.cs" />
+    <Compile Include="Models\ViewModels\ListarPrecio.cs" />
     <Compile Include="Models\ViewModels\ListarPremios.cs" />
     <Compile Include="Models\ViewModels\ListarModo.cs" />
     <Compile Include="Models\ViewModels\ListarTipoProducto.cs" />
     <Compile Include="Models\ViewModels\MantenimientoViewModel.cs" />
+    <Compile Include="Models\ViewModels\ClienteViewModel.cs" />
+    <Compile Include="Models\ViewModels\PrecioViewModel.cs" />
     <Compile Include="Models\ViewModels\PremioViewModel.cs" />
     <Compile Include="Models\ViewModels\ModoViewModel.cs" />
     <Compile Include="Models\ViewModels\TipoProductoViewModel.cs" />
@@ -270,6 +276,12 @@
     <Content Include="Views\Modo\Editar.cshtml" />
     <Content Include="Views\Matenimiento\Index.cshtml" />
     <Content Include="Views\Matenimiento\Nuevo.cshtml" />
+    <Content Include="Views\Precio\Index.cshtml" />
+    <Content Include="Views\Precio\Editar.cshtml" />
+    <Content Include="Views\Precio\Nuevo.cshtml" />
+    <Content Include="Views\Cliente\Index.cshtml" />
+    <Content Include="Views\Cliente\Nuevo.cshtml" />
+    <Content Include="Views\Cliente\Editar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
