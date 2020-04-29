@@ -85,4 +85,3 @@ C:\Users\Fern4ndox\source\repos\ProyectoCRUD\ProyectoCRUD\bin\es\System.Web.WebP
 C:\Users\Fern4ndox\source\repos\ProyectoCRUD\ProyectoCRUD\obj\Debug\ProyectoCRUD.csproj.CopyComplete
 C:\Users\Fern4ndox\source\repos\ProyectoCRUD\ProyectoCRUD\obj\Debug\ProyectoCRUD.dll
 C:\Users\Fern4ndox\source\repos\ProyectoCRUD\ProyectoCRUD\obj\Debug\ProyectoCRUD.pdb
-C:\Users\Fern4ndox\source\repos\ProyectoCRUD\ProyectoCRUD\obj\Debug\ProyectoCRUD.csprojAssemblyReference.cache
