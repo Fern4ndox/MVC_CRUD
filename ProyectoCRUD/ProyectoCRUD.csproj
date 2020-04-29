@@ -132,6 +132,7 @@
     <Compile Include="Controllers\ModoController.cs" />
     <Compile Include="Controllers\PrecioController.cs" />
     <Compile Include="Controllers\PremioController.cs" />
+    <Compile Include="Controllers\TamanioController.cs" />
     <Compile Include="Controllers\TipoProductoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -199,12 +200,14 @@
     <Compile Include="Models\TB_Ventas.cs">
       <DependentUpon>DB_Parcial2.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ViewModels\ListarTamanio.cs" />
     <Compile Include="Models\ViewModels\ListarMantenimiento.cs" />
     <Compile Include="Models\ViewModels\ListarCliente.cs" />
     <Compile Include="Models\ViewModels\ListarPrecio.cs" />
     <Compile Include="Models\ViewModels\ListarPremios.cs" />
     <Compile Include="Models\ViewModels\ListarModo.cs" />
     <Compile Include="Models\ViewModels\ListarTipoProducto.cs" />
+    <Compile Include="Models\ViewModels\TamanioViewModel.cs" />
     <Compile Include="Models\ViewModels\MantenimientoViewModel.cs" />
     <Compile Include="Models\ViewModels\ClienteViewModel.cs" />
     <Compile Include="Models\ViewModels\PrecioViewModel.cs" />
@@ -283,6 +286,9 @@
     <Content Include="Views\Cliente\Nuevo.cshtml" />
     <Content Include="Views\Cliente\Editar.cshtml" />
     <Content Include="Views\Matenimiento\Editar.cshtml" />
+    <Content Include="Views\Tamanio\Index.cshtml" />
+    <Content Include="Views\Tamanio\Nuevo.cshtml" />
+    <Content Include="Views\Tamanio\Editar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
