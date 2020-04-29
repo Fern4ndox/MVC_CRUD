@@ -110,12 +110,12 @@ namespace ProyectoCRUD.Controllers
         public ActionResult Eliminar(int id)
         {
 
-            MantenimientoViewModel model = new MantenimientoViewModel();
+            ClienteViewModel model = new ClienteViewModel();
             using (DB_Parcial2Entities1 bd = new DB_Parcial2Entities1())
             {
-                var tProd = bd.TB_Mantenimientos.Find(id);//obtengo entidad con id
+                var tProd = bd.TB_Clientes.Find(id);//obtengo entidad con id
 
-                bd.TB_Mantenimientos.Remove(tProd);
+                bd.TB_Clientes.Remove(tProd);
 
                 bd.SaveChanges();
 

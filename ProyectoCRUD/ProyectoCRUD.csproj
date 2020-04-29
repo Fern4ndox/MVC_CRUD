@@ -134,6 +134,7 @@
     <Compile Include="Controllers\PremioController.cs" />
     <Compile Include="Controllers\TamanioController.cs" />
     <Compile Include="Controllers\TipoProductoController.cs" />
+    <Compile Include="Controllers\VentaController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -200,6 +201,7 @@
     <Compile Include="Models\TB_Ventas.cs">
       <DependentUpon>DB_Parcial2.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ViewModels\ListarVenta.cs" />
     <Compile Include="Models\ViewModels\ListarTamanio.cs" />
     <Compile Include="Models\ViewModels\ListarMantenimiento.cs" />
     <Compile Include="Models\ViewModels\ListarCliente.cs" />
@@ -207,6 +209,7 @@
     <Compile Include="Models\ViewModels\ListarPremios.cs" />
     <Compile Include="Models\ViewModels\ListarModo.cs" />
     <Compile Include="Models\ViewModels\ListarTipoProducto.cs" />
+    <Compile Include="Models\ViewModels\VentaViewModel.cs" />
     <Compile Include="Models\ViewModels\TamanioViewModel.cs" />
     <Compile Include="Models\ViewModels\MantenimientoViewModel.cs" />
     <Compile Include="Models\ViewModels\ClienteViewModel.cs" />
@@ -292,6 +295,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Venta\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
