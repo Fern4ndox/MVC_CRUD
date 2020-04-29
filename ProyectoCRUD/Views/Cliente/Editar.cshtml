@@ -1,0 +1,43 @@
+﻿@model  ProyectoCRUD.Models.ViewModels.ClienteViewModel
+@{
+    ViewBag.Title = "Editar";
+}
+
+<h2>Editar</h2>
+<!-- usamos helper para crear el formulario de tipo Post  -->
+@using (Html.BeginForm("Editar", "Cliente", FormMethod.Post))
+{
+    <div class="row">
+        <div class="col-md-12">
+            @Html.HiddenFor(p => p.ID);
+            <div class="form-group">
+                <!-- Creo label   -->
+                @Html.LabelFor(p => p.Nombre):
+                <!-- Creo textbox  -->
+                @Html.TextBoxFor(p => p.Nombre, "", new { @class = "form-control" })
+                <!-- para mostrar mensaje de error  -->
+                @Html.ValidationMessageFor(p => p.Nombre, null, new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <!-- Creo label   -->
+                @Html.LabelFor(p => p.Direccion):
+                <!-- Creo textbox  -->
+                @Html.TextBoxFor(p => p.Direccion, "", new { @class = "form-control" })
+                <!-- para mostrar mensaje de error  -->
+                @Html.ValidationMessageFor(p => p.Direccion, null, new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <!-- Creo label   -->
+                @Html.LabelFor(p => p.Tel):
+                <!-- Creo textbox  -->
+                @Html.TextBoxFor(p => p.Tel, "", new { @class = "form-control" })
+                <!-- para mostrar mensaje de error  -->
+                @Html.ValidationMessageFor(p => p.Tel, null, new { @class = "text-danger" })
+            </div>
+
+            <div style="text-align:center">
+                <input type="submit" class="btn btn-primary" value="Guardar" />
+            </div>
+        </div>
+    </div>
+}

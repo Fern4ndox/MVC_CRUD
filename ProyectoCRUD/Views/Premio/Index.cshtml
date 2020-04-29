@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<h2>Index</h2>
+<center><h2>Datos Personas</h2></center>
+<!-- Boton Nuevo  -->
+<div class=" row" style="text-align:right; padding:5px">
+    <div class="col-md-12">
+        <input type="button" class="btn btn-primary" value="Nuevo" onclick="document.location.href='@Url.Content("~/Premio/Nuevo")'" />
+    </div>
+</div>
+<!-- Creo tabla  -->
+<div class="row">
+    <div class="col-md-12">
+
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Id</th>
+                    <th>Premio</th>
+                    <th>Descripción</th>
+                    <th>Editar/Eliminar</th>
+                </tr>
+            </thead>
+            <!-- Recorro el modelo para imprimir datos -->
+            @foreach (var elemento in Model)
+            {
+                <tr>
+                    <td>@elemento.ID</td>
+                    <td>@elemento.Premio</td>
+                    <td>@elemento.Description</td>
+                    <td>
+                        <!-- Botones Editar Eliminar  -->
+                        <input type="button" value="Editar" class="btn btn-default" />
+                        <input type="button" class="btn btn-danger" value="Eliminar" />
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
+

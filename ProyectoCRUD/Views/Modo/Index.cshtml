@@ -1,0 +1,61 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<center><h2>Datos Tipo Producto</h2></center>
+<!-- Boton Nuevo  -->
+<div class=" row" style="text-align:right; padding:5px">
+    <div class="col-md-12">
+        <input type="button" class="btn btn-primary" value="Nuevo" onclick="document.location.href='@Url.Content("~/Modo/Nuevo")'" />
+    </div>
+</div>
+<!-- Creo tabla  -->
+<div class="row">
+    <div class="col-md-12">
+
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Modo</th>
+                    <th>Editar/Eliminar</th>
+                </tr>
+            </thead>
+            <!-- Recorro el modelo para imprimir datos -->
+            @foreach (var elemento in Model)
+            {
+                <tr>
+                    <td>@elemento.ID</td>
+                    <td>@elemento.Modo</td>
+                    <td>
+                        <!-- Botones Editar Eliminar  -->
+                        <input type="button" onclick="document.location.href='@Url.Content("~/Modo/Editar/"+elemento.ID)'" value="Editar" class="btn btn-default" />
+                        <div style="text-align: justify;">
+                            <input class="btn btn-danger" onclick="jsEliminar(@elemento.ID);" type="button" value="Eliminar" />
+                        </div>
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div><script>
+function jsEliminar(id) {
+        if (confirm("Quieres Eliminar El Registro?")) {
+            url = "@Url.Content("~/Modo/Eliminar")" + "/"+id; //metodo Eliminar Controller
+
+            $.post(url, function (data) {
+
+            if (data=="ok") {
+            document.location.href = "@Url.Content("~/Modo/")"
+            console.log("Exito");
+            } else {
+            alert("No se pudo Eliminar El registro");
+            }
+
+            })
+            }
+            }
+            </script/>

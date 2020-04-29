@@ -132,6 +132,10 @@
     <Compile Include="Controllers\ModoController.cs" />
     <Compile Include="Controllers\PrecioController.cs" />
     <Compile Include="Controllers\PremioController.cs" />
+<<<<<<< HEAD
+=======
+    <Compile Include="Controllers\ModoController.cs" />
+>>>>>>> d349116668be4b83986fac182f2444261dbfd67d
     <Compile Include="Controllers\TipoProductoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -205,9 +209,12 @@
     <Compile Include="Models\ViewModels\ListarPremios.cs" />
     <Compile Include="Models\ViewModels\ListarModo.cs" />
     <Compile Include="Models\ViewModels\ListarTipoProducto.cs" />
+<<<<<<< HEAD
     <Compile Include="Models\ViewModels\MantenimientoViewModel.cs" />
     <Compile Include="Models\ViewModels\ClienteViewModel.cs" />
     <Compile Include="Models\ViewModels\PrecioViewModel.cs" />
+=======
+>>>>>>> d349116668be4b83986fac182f2444261dbfd67d
     <Compile Include="Models\ViewModels\PremioViewModel.cs" />
     <Compile Include="Models\ViewModels\ModoViewModel.cs" />
     <Compile Include="Models\ViewModels\TipoProductoViewModel.cs" />
@@ -274,6 +281,7 @@
     <Content Include="Views\Modo\Index.cshtml" />
     <Content Include="Views\Modo\Nuevo.cshtml" />
     <Content Include="Views\Modo\Editar.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\Matenimiento\Index.cshtml" />
     <Content Include="Views\Matenimiento\Nuevo.cshtml" />
     <Content Include="Views\Precio\Index.cshtml" />
@@ -282,6 +290,8 @@
     <Content Include="Views\Cliente\Index.cshtml" />
     <Content Include="Views\Cliente\Nuevo.cshtml" />
     <Content Include="Views\Cliente\Editar.cshtml" />
+=======
+>>>>>>> d349116668be4b83986fac182f2444261dbfd67d
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

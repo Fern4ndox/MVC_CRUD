@@ -1,0 +1,27 @@
+﻿@model  ProyectoCRUD.Models.ViewModels.PrecioViewModel
+@{
+    ViewBag.Title = "Editar";
+}
+
+<h2>Editar</h2>
+<!-- usamos helper para crear el formulario de tipo Post  -->
+@using (Html.BeginForm("Editar", "Precio", FormMethod.Post))
+{
+    <div class="row">
+        <div class="col-md-12">
+            @Html.HiddenFor(p => p.ID);
+            <div class="form-group">
+                <!-- Creo label   -->
+                @Html.LabelFor(p => p.Precio):
+                <!-- Creo textbox  -->
+                @Html.TextBoxFor(p => p.Precio, "", new { @class = "form-control" })
+                <!-- para mostrar mensaje de error  -->
+                @Html.ValidationMessageFor(p => p.Precio, null, new { @class = "text-danger" })
+            </div>
+
+            <div style="text-align:center">
+                <input type="submit" class="btn btn-primary" value="Guardar" />
+            </div>
+        </div>
+    </div>
+}

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5dc38b3ff38341d29de94695fb6eedd5" Name="Diagram1">
+        <EntityTypeShape EntityType="DB_Parcial2Model.sysdiagrams" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_Parcial2Model.TB_Clientes" Width="1.5" PointX="5.25" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_Parcial2Model.TB_DetallePedidos" Width="1.5" PointX="7.5" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_Parcial2Model.TB_Ingredientes" Width="1.5" PointX="3" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_Parcial2Model.TB_Inventario" Width="1.5" PointX="7.5" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_Parcial2Model.TB_Mantenimientos" Width="1.5" PointX="0.75" PointY="15.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_Parcial2Model.TB_Modo" Width="1.5" PointX="5.25" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_Parcial2Model.TB_Pedidos" Width="1.5" PointX="7.5" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_Parcial2Model.TB_Precios" Width="1.5" PointX="0.75" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_Parcial2Model.TB_Premios" Width="1.5" PointX="5.25" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_Parcial2Model.TB_Productos" Width="1.5" PointX="5.25" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_Parcial2Model.TB_Repartidores" Width="1.5" PointX="5.25" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_Parcial2Model.TB_Scooter" Width="1.5" PointX="3" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_Parcial2Model.TB_Tamanio" Width="1.5" PointX="3" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_Parcial2Model.TB_TipoProductos" Width="1.5" PointX="3" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_Parcial2Model.TB_Ventas" Width="1.5" PointX="3" PointY="4.75" IsExpanded="true" />
+        <AssociationConnector Association="DB_Parcial2Model.FK_ClienteIDDetalleP" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_Parcial2Model.FK_ClienteIDPedido" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_Parcial2Model.PK_ClienteIDInventario" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_Parcial2Model.FK_IngIDProducto" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_Parcial2Model.FK_PrecioID" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_Parcial2Model.FK_MantenimientoScooter" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_Parcial2Model.FK_ModoIDPedido" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_Parcial2Model.FK_PremioIDPedido" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_Parcial2Model.FK_ProductoIDPedido" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_Parcial2Model.FK_RepartidorIDPedido" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_Parcial2Model.FK_TipoVentaIDPedido" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_Parcial2Model.FK_PrecioIDProducto" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_Parcial2Model.FK_PrecioIDV" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_Parcial2Model.FK_TamanioIDProducto" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_Parcial2Model.FK_TipoPID" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_Parcial2Model.PK_ScooterIDRepartidor" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,29 @@
+﻿@model ProyectoCRUD.Models.ViewModels.PremioViewModel
+@{
+    ViewBag.Title = "Nuevo";
+}
+<h2>Ingresar Premio</h2>
+<!-- usamos helper para crear el formulario de tipo Post  -->
+@using (Html.BeginForm("Nuevo", "Premio", FormMethod.Post))
+{
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <!-- Creo label   -->
+                @Html.LabelFor(p => p.Premio):
+                <!-- Creo textbox  -->
+                @Html.TextBoxFor(p => p.Premio, "", new { @class = "form-control" })
+                <!-- para mostrar mensaje de error  -->
+                @Html.ValidationMessageFor(p => p.Premio, null, new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(p => p.Description):
+                @Html.TextBoxFor(p => p.Description, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(p => p.Description, null, new { @class = "text-danger" })
+            </div>
+            <div style="text-align:center">
+                <input type="submit" class="btn btn-primary" value="Guardar" />
+            </div>
+        </div>
+    </div>
+}

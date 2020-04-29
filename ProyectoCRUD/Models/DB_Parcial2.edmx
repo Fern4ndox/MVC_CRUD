@@ -1,0 +1,1043 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DB_Parcial2Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="TB_Clientes">
+          <Key>
+            <PropertyRef Name="Cliente_ID" />
+          </Key>
+          <Property Name="Cliente_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Cliente_Nombre" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="Cliente_Direccion" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Cliente_Telefono" Type="numeric" Precision="8" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TB_DetallePedidos">
+          <Key>
+            <PropertyRef Name="DetalleP_ID" />
+          </Key>
+          <Property Name="DetalleP_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ClienteID_DetalleP" Type="int" Nullable="false" />
+          <Property Name="DetalleP_Fecha" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TB_Ingredientes">
+          <Key>
+            <PropertyRef Name="Ingrediente_ID" />
+          </Key>
+          <Property Name="Ingrediente_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PrecioIng_ID" Type="int" Nullable="false" />
+          <Property Name="Ingredientes_Nombre" Type="nvarchar" MaxLength="25" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TB_Inventario">
+          <Key>
+            <PropertyRef Name="Inventario_ID" />
+          </Key>
+          <Property Name="Inventario_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ClienteID_Inventario" Type="int" Nullable="false" />
+          <Property Name="Inventario_Existencia" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TB_Mantenimientos">
+          <Key>
+            <PropertyRef Name="Mantenimiento_ID" />
+          </Key>
+          <Property Name="Mantenimiento_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Mantenimiento_Descripcion" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Mantenimiento_KM" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TB_Modo">
+          <Key>
+            <PropertyRef Name="Modo_ID" />
+          </Key>
+          <Property Name="Modo_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Modo_Modo" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TB_Pedidos">
+          <Key>
+            <PropertyRef Name="Pedido_ID" />
+          </Key>
+          <Property Name="Pedido_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductoID_Pedido" Type="int" Nullable="false" />
+          <Property Name="TipoVentaID_Pedido" Type="int" Nullable="false" />
+          <Property Name="Producto_Total" Type="int" Nullable="false" />
+          <Property Name="ModoID_Pedido" Type="int" Nullable="false" />
+          <Property Name="ClienteID_Pedido" Type="int" Nullable="false" />
+          <Property Name="PremioID_Producto" Type="int" Nullable="false" />
+          <Property Name="RepartidorID_Pedido" Type="int" />
+        </EntityType>
+        <EntityType Name="TB_Precios">
+          <Key>
+            <PropertyRef Name="Precio_ID" />
+          </Key>
+          <Property Name="Precio_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Precio_Precio" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TB_Premios">
+          <Key>
+            <PropertyRef Name="Premio_ID" />
+          </Key>
+          <Property Name="Premio_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Premio_Premio" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="Premio_Descripcion" Type="nvarchar" MaxLength="75" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TB_Productos">
+          <Key>
+            <PropertyRef Name="Producto_ID" />
+          </Key>
+          <Property Name="Producto_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IngredientesID_Producto" Type="int" Nullable="false" />
+          <Property Name="Producto_Nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PrecioID_Producto" Type="int" Nullable="false" />
+          <Property Name="TipoProducto_ID" Type="int" Nullable="false" />
+          <Property Name="TamanioID_Producto" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TB_Repartidores">
+          <Key>
+            <PropertyRef Name="Repartidor_ID" />
+          </Key>
+          <Property Name="Repartidor_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ScooterID_Repartidor" Type="int" Nullable="false" />
+          <Property Name="Repartidor_Nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TB_Scooter">
+          <Key>
+            <PropertyRef Name="Scooter_ID" />
+          </Key>
+          <Property Name="Scooter_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Scooter_Descripcion" Type="nvarchar" MaxLength="75" Nullable="false" />
+          <Property Name="MantenimientoID_Scooter" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TB_Tamanio">
+          <Key>
+            <PropertyRef Name="Tamanio_ID" />
+          </Key>
+          <Property Name="Tamanio_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tamanio_Tamanio" Type="nvarchar" MaxLength="25" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TB_TipoProductos">
+          <Key>
+            <PropertyRef Name="TipoP_ID" />
+          </Key>
+          <Property Name="TipoP_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TipoP_Tipo" Type="nvarchar" MaxLength="25" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TB_Ventas">
+          <Key>
+            <PropertyRef Name="Venta_ID" />
+          </Key>
+          <Property Name="Venta_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PrecioID_Venta" Type="int" Nullable="false" />
+          <Property Name="Venta_Precio" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_ClienteIDDetalleP">
+          <End Role="TB_Clientes" Type="Self.TB_Clientes" Multiplicity="1" />
+          <End Role="TB_DetallePedidos" Type="Self.TB_DetallePedidos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_Clientes">
+              <PropertyRef Name="Cliente_ID" />
+            </Principal>
+            <Dependent Role="TB_DetallePedidos">
+              <PropertyRef Name="ClienteID_DetalleP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClienteIDPedido">
+          <End Role="TB_Clientes" Type="Self.TB_Clientes" Multiplicity="1" />
+          <End Role="TB_Pedidos" Type="Self.TB_Pedidos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_Clientes">
+              <PropertyRef Name="Cliente_ID" />
+            </Principal>
+            <Dependent Role="TB_Pedidos">
+              <PropertyRef Name="ClienteID_Pedido" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IngIDProducto">
+          <End Role="TB_Ingredientes" Type="Self.TB_Ingredientes" Multiplicity="1" />
+          <End Role="TB_Productos" Type="Self.TB_Productos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_Ingredientes">
+              <PropertyRef Name="Ingrediente_ID" />
+            </Principal>
+            <Dependent Role="TB_Productos">
+              <PropertyRef Name="IngredientesID_Producto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MantenimientoScooter">
+          <End Role="TB_Mantenimientos" Type="Self.TB_Mantenimientos" Multiplicity="1" />
+          <End Role="TB_Scooter" Type="Self.TB_Scooter" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_Mantenimientos">
+              <PropertyRef Name="Mantenimiento_ID" />
+            </Principal>
+            <Dependent Role="TB_Scooter">
+              <PropertyRef Name="MantenimientoID_Scooter" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ModoIDPedido">
+          <End Role="TB_Modo" Type="Self.TB_Modo" Multiplicity="1" />
+          <End Role="TB_Pedidos" Type="Self.TB_Pedidos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_Modo">
+              <PropertyRef Name="Modo_ID" />
+            </Principal>
+            <Dependent Role="TB_Pedidos">
+              <PropertyRef Name="ModoID_Pedido" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PrecioID">
+          <End Role="TB_Precios" Type="Self.TB_Precios" Multiplicity="1" />
+          <End Role="TB_Ingredientes" Type="Self.TB_Ingredientes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_Precios">
+              <PropertyRef Name="Precio_ID" />
+            </Principal>
+            <Dependent Role="TB_Ingredientes">
+              <PropertyRef Name="PrecioIng_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PrecioIDProducto">
+          <End Role="TB_Precios" Type="Self.TB_Precios" Multiplicity="1" />
+          <End Role="TB_Productos" Type="Self.TB_Productos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_Precios">
+              <PropertyRef Name="Precio_ID" />
+            </Principal>
+            <Dependent Role="TB_Productos">
+              <PropertyRef Name="PrecioID_Producto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PrecioIDV">
+          <End Role="TB_Precios" Type="Self.TB_Precios" Multiplicity="1" />
+          <End Role="TB_Ventas" Type="Self.TB_Ventas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_Precios">
+              <PropertyRef Name="Precio_ID" />
+            </Principal>
+            <Dependent Role="TB_Ventas">
+              <PropertyRef Name="PrecioID_Venta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PremioIDPedido">
+          <End Role="TB_Premios" Type="Self.TB_Premios" Multiplicity="1" />
+          <End Role="TB_Pedidos" Type="Self.TB_Pedidos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_Premios">
+              <PropertyRef Name="Premio_ID" />
+            </Principal>
+            <Dependent Role="TB_Pedidos">
+              <PropertyRef Name="PremioID_Producto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductoIDPedido">
+          <End Role="TB_Productos" Type="Self.TB_Productos" Multiplicity="1" />
+          <End Role="TB_Pedidos" Type="Self.TB_Pedidos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_Productos">
+              <PropertyRef Name="Producto_ID" />
+            </Principal>
+            <Dependent Role="TB_Pedidos">
+              <PropertyRef Name="ProductoID_Pedido" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RepartidorIDPedido">
+          <End Role="TB_Repartidores" Type="Self.TB_Repartidores" Multiplicity="0..1" />
+          <End Role="TB_Pedidos" Type="Self.TB_Pedidos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_Repartidores">
+              <PropertyRef Name="Repartidor_ID" />
+            </Principal>
+            <Dependent Role="TB_Pedidos">
+              <PropertyRef Name="RepartidorID_Pedido" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TamanioIDProducto">
+          <End Role="TB_Tamanio" Type="Self.TB_Tamanio" Multiplicity="1" />
+          <End Role="TB_Productos" Type="Self.TB_Productos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_Tamanio">
+              <PropertyRef Name="Tamanio_ID" />
+            </Principal>
+            <Dependent Role="TB_Productos">
+              <PropertyRef Name="TamanioID_Producto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TipoPID">
+          <End Role="TB_TipoProductos" Type="Self.TB_TipoProductos" Multiplicity="1" />
+          <End Role="TB_Productos" Type="Self.TB_Productos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_TipoProductos">
+              <PropertyRef Name="TipoP_ID" />
+            </Principal>
+            <Dependent Role="TB_Productos">
+              <PropertyRef Name="TipoProducto_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TipoVentaIDPedido">
+          <End Role="TB_Ventas" Type="Self.TB_Ventas" Multiplicity="1" />
+          <End Role="TB_Pedidos" Type="Self.TB_Pedidos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_Ventas">
+              <PropertyRef Name="Venta_ID" />
+            </Principal>
+            <Dependent Role="TB_Pedidos">
+              <PropertyRef Name="TipoVentaID_Pedido" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PK_ClienteIDInventario">
+          <End Role="TB_Clientes" Type="Self.TB_Clientes" Multiplicity="1" />
+          <End Role="TB_Inventario" Type="Self.TB_Inventario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_Clientes">
+              <PropertyRef Name="Cliente_ID" />
+            </Principal>
+            <Dependent Role="TB_Inventario">
+              <PropertyRef Name="ClienteID_Inventario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PK_ScooterIDRepartidor">
+          <End Role="TB_Scooter" Type="Self.TB_Scooter" Multiplicity="1" />
+          <End Role="TB_Repartidores" Type="Self.TB_Repartidores" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_Scooter">
+              <PropertyRef Name="Scooter_ID" />
+            </Principal>
+            <Dependent Role="TB_Repartidores">
+              <PropertyRef Name="ScooterID_Repartidor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DB_Parcial2ModelStoreContainer">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_Clientes" EntityType="Self.TB_Clientes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_DetallePedidos" EntityType="Self.TB_DetallePedidos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_Ingredientes" EntityType="Self.TB_Ingredientes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_Inventario" EntityType="Self.TB_Inventario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_Mantenimientos" EntityType="Self.TB_Mantenimientos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_Modo" EntityType="Self.TB_Modo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_Pedidos" EntityType="Self.TB_Pedidos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_Precios" EntityType="Self.TB_Precios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_Premios" EntityType="Self.TB_Premios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_Productos" EntityType="Self.TB_Productos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_Repartidores" EntityType="Self.TB_Repartidores" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_Scooter" EntityType="Self.TB_Scooter" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_Tamanio" EntityType="Self.TB_Tamanio" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_TipoProductos" EntityType="Self.TB_TipoProductos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_Ventas" EntityType="Self.TB_Ventas" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_ClienteIDDetalleP" Association="Self.FK_ClienteIDDetalleP">
+            <End Role="TB_Clientes" EntitySet="TB_Clientes" />
+            <End Role="TB_DetallePedidos" EntitySet="TB_DetallePedidos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClienteIDPedido" Association="Self.FK_ClienteIDPedido">
+            <End Role="TB_Clientes" EntitySet="TB_Clientes" />
+            <End Role="TB_Pedidos" EntitySet="TB_Pedidos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IngIDProducto" Association="Self.FK_IngIDProducto">
+            <End Role="TB_Ingredientes" EntitySet="TB_Ingredientes" />
+            <End Role="TB_Productos" EntitySet="TB_Productos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MantenimientoScooter" Association="Self.FK_MantenimientoScooter">
+            <End Role="TB_Mantenimientos" EntitySet="TB_Mantenimientos" />
+            <End Role="TB_Scooter" EntitySet="TB_Scooter" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ModoIDPedido" Association="Self.FK_ModoIDPedido">
+            <End Role="TB_Modo" EntitySet="TB_Modo" />
+            <End Role="TB_Pedidos" EntitySet="TB_Pedidos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PrecioID" Association="Self.FK_PrecioID">
+            <End Role="TB_Precios" EntitySet="TB_Precios" />
+            <End Role="TB_Ingredientes" EntitySet="TB_Ingredientes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PrecioIDProducto" Association="Self.FK_PrecioIDProducto">
+            <End Role="TB_Precios" EntitySet="TB_Precios" />
+            <End Role="TB_Productos" EntitySet="TB_Productos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PrecioIDV" Association="Self.FK_PrecioIDV">
+            <End Role="TB_Precios" EntitySet="TB_Precios" />
+            <End Role="TB_Ventas" EntitySet="TB_Ventas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PremioIDPedido" Association="Self.FK_PremioIDPedido">
+            <End Role="TB_Premios" EntitySet="TB_Premios" />
+            <End Role="TB_Pedidos" EntitySet="TB_Pedidos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductoIDPedido" Association="Self.FK_ProductoIDPedido">
+            <End Role="TB_Productos" EntitySet="TB_Productos" />
+            <End Role="TB_Pedidos" EntitySet="TB_Pedidos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RepartidorIDPedido" Association="Self.FK_RepartidorIDPedido">
+            <End Role="TB_Repartidores" EntitySet="TB_Repartidores" />
+            <End Role="TB_Pedidos" EntitySet="TB_Pedidos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TamanioIDProducto" Association="Self.FK_TamanioIDProducto">
+            <End Role="TB_Tamanio" EntitySet="TB_Tamanio" />
+            <End Role="TB_Productos" EntitySet="TB_Productos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TipoPID" Association="Self.FK_TipoPID">
+            <End Role="TB_TipoProductos" EntitySet="TB_TipoProductos" />
+            <End Role="TB_Productos" EntitySet="TB_Productos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TipoVentaIDPedido" Association="Self.FK_TipoVentaIDPedido">
+            <End Role="TB_Ventas" EntitySet="TB_Ventas" />
+            <End Role="TB_Pedidos" EntitySet="TB_Pedidos" />
+          </AssociationSet>
+          <AssociationSet Name="PK_ClienteIDInventario" Association="Self.PK_ClienteIDInventario">
+            <End Role="TB_Clientes" EntitySet="TB_Clientes" />
+            <End Role="TB_Inventario" EntitySet="TB_Inventario" />
+          </AssociationSet>
+          <AssociationSet Name="PK_ScooterIDRepartidor" Association="Self.PK_ScooterIDRepartidor">
+            <End Role="TB_Scooter" EntitySet="TB_Scooter" />
+            <End Role="TB_Repartidores" EntitySet="TB_Repartidores" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DB_Parcial2Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TB_Clientes">
+          <Key>
+            <PropertyRef Name="Cliente_ID" />
+          </Key>
+          <Property Name="Cliente_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Cliente_Nombre" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Cliente_Direccion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Cliente_Telefono" Type="Decimal" Precision="8" Scale="0" Nullable="false" />
+          <NavigationProperty Name="TB_DetallePedidos" Relationship="Self.FK_ClienteIDDetalleP" FromRole="TB_Clientes" ToRole="TB_DetallePedidos" />
+          <NavigationProperty Name="TB_Pedidos" Relationship="Self.FK_ClienteIDPedido" FromRole="TB_Clientes" ToRole="TB_Pedidos" />
+          <NavigationProperty Name="TB_Inventario" Relationship="Self.PK_ClienteIDInventario" FromRole="TB_Clientes" ToRole="TB_Inventario" />
+        </EntityType>
+        <EntityType Name="TB_DetallePedidos">
+          <Key>
+            <PropertyRef Name="DetalleP_ID" />
+          </Key>
+          <Property Name="DetalleP_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClienteID_DetalleP" Type="Int32" Nullable="false" />
+          <Property Name="DetalleP_Fecha" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="TB_Clientes" Relationship="Self.FK_ClienteIDDetalleP" FromRole="TB_DetallePedidos" ToRole="TB_Clientes" />
+        </EntityType>
+        <EntityType Name="TB_Ingredientes">
+          <Key>
+            <PropertyRef Name="Ingrediente_ID" />
+          </Key>
+          <Property Name="Ingrediente_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PrecioIng_ID" Type="Int32" Nullable="false" />
+          <Property Name="Ingredientes_Nombre" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="TB_Productos" Relationship="Self.FK_IngIDProducto" FromRole="TB_Ingredientes" ToRole="TB_Productos" />
+          <NavigationProperty Name="TB_Precios" Relationship="Self.FK_PrecioID" FromRole="TB_Ingredientes" ToRole="TB_Precios" />
+        </EntityType>
+        <EntityType Name="TB_Inventario">
+          <Key>
+            <PropertyRef Name="Inventario_ID" />
+          </Key>
+          <Property Name="Inventario_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClienteID_Inventario" Type="Int32" Nullable="false" />
+          <Property Name="Inventario_Existencia" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TB_Clientes" Relationship="Self.PK_ClienteIDInventario" FromRole="TB_Inventario" ToRole="TB_Clientes" />
+        </EntityType>
+        <EntityType Name="TB_Mantenimientos">
+          <Key>
+            <PropertyRef Name="Mantenimiento_ID" />
+          </Key>
+          <Property Name="Mantenimiento_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Mantenimiento_Descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Mantenimiento_KM" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TB_Scooter" Relationship="Self.FK_MantenimientoScooter" FromRole="TB_Mantenimientos" ToRole="TB_Scooter" />
+        </EntityType>
+        <EntityType Name="TB_Modo">
+          <Key>
+            <PropertyRef Name="Modo_ID" />
+          </Key>
+          <Property Name="Modo_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Modo_Modo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="TB_Pedidos" Relationship="Self.FK_ModoIDPedido" FromRole="TB_Modo" ToRole="TB_Pedidos" />
+        </EntityType>
+        <EntityType Name="TB_Pedidos">
+          <Key>
+            <PropertyRef Name="Pedido_ID" />
+          </Key>
+          <Property Name="Pedido_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductoID_Pedido" Type="Int32" Nullable="false" />
+          <Property Name="TipoVentaID_Pedido" Type="Int32" Nullable="false" />
+          <Property Name="Producto_Total" Type="Int32" Nullable="false" />
+          <Property Name="ModoID_Pedido" Type="Int32" Nullable="false" />
+          <Property Name="ClienteID_Pedido" Type="Int32" Nullable="false" />
+          <Property Name="PremioID_Producto" Type="Int32" Nullable="false" />
+          <Property Name="RepartidorID_Pedido" Type="Int32" />
+          <NavigationProperty Name="TB_Clientes" Relationship="Self.FK_ClienteIDPedido" FromRole="TB_Pedidos" ToRole="TB_Clientes" />
+          <NavigationProperty Name="TB_Modo" Relationship="Self.FK_ModoIDPedido" FromRole="TB_Pedidos" ToRole="TB_Modo" />
+          <NavigationProperty Name="TB_Premios" Relationship="Self.FK_PremioIDPedido" FromRole="TB_Pedidos" ToRole="TB_Premios" />
+          <NavigationProperty Name="TB_Productos" Relationship="Self.FK_ProductoIDPedido" FromRole="TB_Pedidos" ToRole="TB_Productos" />
+          <NavigationProperty Name="TB_Repartidores" Relationship="Self.FK_RepartidorIDPedido" FromRole="TB_Pedidos" ToRole="TB_Repartidores" />
+          <NavigationProperty Name="TB_Ventas" Relationship="Self.FK_TipoVentaIDPedido" FromRole="TB_Pedidos" ToRole="TB_Ventas" />
+        </EntityType>
+        <EntityType Name="TB_Precios">
+          <Key>
+            <PropertyRef Name="Precio_ID" />
+          </Key>
+          <Property Name="Precio_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Precio_Precio" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TB_Ingredientes" Relationship="Self.FK_PrecioID" FromRole="TB_Precios" ToRole="TB_Ingredientes" />
+          <NavigationProperty Name="TB_Productos" Relationship="Self.FK_PrecioIDProducto" FromRole="TB_Precios" ToRole="TB_Productos" />
+          <NavigationProperty Name="TB_Ventas" Relationship="Self.FK_PrecioIDV" FromRole="TB_Precios" ToRole="TB_Ventas" />
+        </EntityType>
+        <EntityType Name="TB_Premios">
+          <Key>
+            <PropertyRef Name="Premio_ID" />
+          </Key>
+          <Property Name="Premio_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Premio_Premio" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Premio_Descripcion" Type="String" MaxLength="75" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="TB_Pedidos" Relationship="Self.FK_PremioIDPedido" FromRole="TB_Premios" ToRole="TB_Pedidos" />
+        </EntityType>
+        <EntityType Name="TB_Productos">
+          <Key>
+            <PropertyRef Name="Producto_ID" />
+          </Key>
+          <Property Name="Producto_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IngredientesID_Producto" Type="Int32" Nullable="false" />
+          <Property Name="Producto_Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PrecioID_Producto" Type="Int32" Nullable="false" />
+          <Property Name="TipoProducto_ID" Type="Int32" Nullable="false" />
+          <Property Name="TamanioID_Producto" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TB_Ingredientes" Relationship="Self.FK_IngIDProducto" FromRole="TB_Productos" ToRole="TB_Ingredientes" />
+          <NavigationProperty Name="TB_Pedidos" Relationship="Self.FK_ProductoIDPedido" FromRole="TB_Productos" ToRole="TB_Pedidos" />
+          <NavigationProperty Name="TB_Precios" Relationship="Self.FK_PrecioIDProducto" FromRole="TB_Productos" ToRole="TB_Precios" />
+          <NavigationProperty Name="TB_Tamanio" Relationship="Self.FK_TamanioIDProducto" FromRole="TB_Productos" ToRole="TB_Tamanio" />
+          <NavigationProperty Name="TB_TipoProductos" Relationship="Self.FK_TipoPID" FromRole="TB_Productos" ToRole="TB_TipoProductos" />
+        </EntityType>
+        <EntityType Name="TB_Repartidores">
+          <Key>
+            <PropertyRef Name="Repartidor_ID" />
+          </Key>
+          <Property Name="Repartidor_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ScooterID_Repartidor" Type="Int32" Nullable="false" />
+          <Property Name="Repartidor_Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="TB_Pedidos" Relationship="Self.FK_RepartidorIDPedido" FromRole="TB_Repartidores" ToRole="TB_Pedidos" />
+          <NavigationProperty Name="TB_Scooter" Relationship="Self.PK_ScooterIDRepartidor" FromRole="TB_Repartidores" ToRole="TB_Scooter" />
+        </EntityType>
+        <EntityType Name="TB_Scooter">
+          <Key>
+            <PropertyRef Name="Scooter_ID" />
+          </Key>
+          <Property Name="Scooter_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Scooter_Descripcion" Type="String" MaxLength="75" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MantenimientoID_Scooter" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TB_Mantenimientos" Relationship="Self.FK_MantenimientoScooter" FromRole="TB_Scooter" ToRole="TB_Mantenimientos" />
+          <NavigationProperty Name="TB_Repartidores" Relationship="Self.PK_ScooterIDRepartidor" FromRole="TB_Scooter" ToRole="TB_Repartidores" />
+        </EntityType>
+        <EntityType Name="TB_Tamanio">
+          <Key>
+            <PropertyRef Name="Tamanio_ID" />
+          </Key>
+          <Property Name="Tamanio_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tamanio_Tamanio" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="TB_Productos" Relationship="Self.FK_TamanioIDProducto" FromRole="TB_Tamanio" ToRole="TB_Productos" />
+        </EntityType>
+        <EntityType Name="TB_TipoProductos">
+          <Key>
+            <PropertyRef Name="TipoP_ID" />
+          </Key>
+          <Property Name="TipoP_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TipoP_Tipo" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="TB_Productos" Relationship="Self.FK_TipoPID" FromRole="TB_TipoProductos" ToRole="TB_Productos" />
+        </EntityType>
+        <EntityType Name="TB_Ventas">
+          <Key>
+            <PropertyRef Name="Venta_ID" />
+          </Key>
+          <Property Name="Venta_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PrecioID_Venta" Type="Int32" Nullable="false" />
+          <Property Name="Venta_Precio" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TB_Pedidos" Relationship="Self.FK_TipoVentaIDPedido" FromRole="TB_Ventas" ToRole="TB_Pedidos" />
+          <NavigationProperty Name="TB_Precios" Relationship="Self.FK_PrecioIDV" FromRole="TB_Ventas" ToRole="TB_Precios" />
+        </EntityType>
+        <Association Name="FK_ClienteIDDetalleP">
+          <End Role="TB_Clientes" Type="Self.TB_Clientes" Multiplicity="1" />
+          <End Role="TB_DetallePedidos" Type="Self.TB_DetallePedidos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_Clientes">
+              <PropertyRef Name="Cliente_ID" />
+            </Principal>
+            <Dependent Role="TB_DetallePedidos">
+              <PropertyRef Name="ClienteID_DetalleP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClienteIDPedido">
+          <End Role="TB_Clientes" Type="Self.TB_Clientes" Multiplicity="1" />
+          <End Role="TB_Pedidos" Type="Self.TB_Pedidos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_Clientes">
+              <PropertyRef Name="Cliente_ID" />
+            </Principal>
+            <Dependent Role="TB_Pedidos">
+              <PropertyRef Name="ClienteID_Pedido" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PK_ClienteIDInventario">
+          <End Role="TB_Clientes" Type="Self.TB_Clientes" Multiplicity="1" />
+          <End Role="TB_Inventario" Type="Self.TB_Inventario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_Clientes">
+              <PropertyRef Name="Cliente_ID" />
+            </Principal>
+            <Dependent Role="TB_Inventario">
+              <PropertyRef Name="ClienteID_Inventario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IngIDProducto">
+          <End Role="TB_Ingredientes" Type="Self.TB_Ingredientes" Multiplicity="1" />
+          <End Role="TB_Productos" Type="Self.TB_Productos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_Ingredientes">
+              <PropertyRef Name="Ingrediente_ID" />
+            </Principal>
+            <Dependent Role="TB_Productos">
+              <PropertyRef Name="IngredientesID_Producto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PrecioID">
+          <End Role="TB_Precios" Type="Self.TB_Precios" Multiplicity="1" />
+          <End Role="TB_Ingredientes" Type="Self.TB_Ingredientes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_Precios">
+              <PropertyRef Name="Precio_ID" />
+            </Principal>
+            <Dependent Role="TB_Ingredientes">
+              <PropertyRef Name="PrecioIng_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MantenimientoScooter">
+          <End Role="TB_Mantenimientos" Type="Self.TB_Mantenimientos" Multiplicity="1" />
+          <End Role="TB_Scooter" Type="Self.TB_Scooter" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_Mantenimientos">
+              <PropertyRef Name="Mantenimiento_ID" />
+            </Principal>
+            <Dependent Role="TB_Scooter">
+              <PropertyRef Name="MantenimientoID_Scooter" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ModoIDPedido">
+          <End Role="TB_Modo" Type="Self.TB_Modo" Multiplicity="1" />
+          <End Role="TB_Pedidos" Type="Self.TB_Pedidos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_Modo">
+              <PropertyRef Name="Modo_ID" />
+            </Principal>
+            <Dependent Role="TB_Pedidos">
+              <PropertyRef Name="ModoID_Pedido" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PremioIDPedido">
+          <End Role="TB_Premios" Type="Self.TB_Premios" Multiplicity="1" />
+          <End Role="TB_Pedidos" Type="Self.TB_Pedidos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_Premios">
+              <PropertyRef Name="Premio_ID" />
+            </Principal>
+            <Dependent Role="TB_Pedidos">
+              <PropertyRef Name="PremioID_Producto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductoIDPedido">
+          <End Role="TB_Productos" Type="Self.TB_Productos" Multiplicity="1" />
+          <End Role="TB_Pedidos" Type="Self.TB_Pedidos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_Productos">
+              <PropertyRef Name="Producto_ID" />
+            </Principal>
+            <Dependent Role="TB_Pedidos">
+              <PropertyRef Name="ProductoID_Pedido" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RepartidorIDPedido">
+          <End Role="TB_Repartidores" Type="Self.TB_Repartidores" Multiplicity="0..1" />
+          <End Role="TB_Pedidos" Type="Self.TB_Pedidos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_Repartidores">
+              <PropertyRef Name="Repartidor_ID" />
+            </Principal>
+            <Dependent Role="TB_Pedidos">
+              <PropertyRef Name="RepartidorID_Pedido" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TipoVentaIDPedido">
+          <End Role="TB_Ventas" Type="Self.TB_Ventas" Multiplicity="1" />
+          <End Role="TB_Pedidos" Type="Self.TB_Pedidos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_Ventas">
+              <PropertyRef Name="Venta_ID" />
+            </Principal>
+            <Dependent Role="TB_Pedidos">
+              <PropertyRef Name="TipoVentaID_Pedido" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PrecioIDProducto">
+          <End Role="TB_Precios" Type="Self.TB_Precios" Multiplicity="1" />
+          <End Role="TB_Productos" Type="Self.TB_Productos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_Precios">
+              <PropertyRef Name="Precio_ID" />
+            </Principal>
+            <Dependent Role="TB_Productos">
+              <PropertyRef Name="PrecioID_Producto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PrecioIDV">
+          <End Role="TB_Precios" Type="Self.TB_Precios" Multiplicity="1" />
+          <End Role="TB_Ventas" Type="Self.TB_Ventas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_Precios">
+              <PropertyRef Name="Precio_ID" />
+            </Principal>
+            <Dependent Role="TB_Ventas">
+              <PropertyRef Name="PrecioID_Venta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TamanioIDProducto">
+          <End Role="TB_Tamanio" Type="Self.TB_Tamanio" Multiplicity="1" />
+          <End Role="TB_Productos" Type="Self.TB_Productos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_Tamanio">
+              <PropertyRef Name="Tamanio_ID" />
+            </Principal>
+            <Dependent Role="TB_Productos">
+              <PropertyRef Name="TamanioID_Producto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TipoPID">
+          <End Role="TB_TipoProductos" Type="Self.TB_TipoProductos" Multiplicity="1" />
+          <End Role="TB_Productos" Type="Self.TB_Productos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_TipoProductos">
+              <PropertyRef Name="TipoP_ID" />
+            </Principal>
+            <Dependent Role="TB_Productos">
+              <PropertyRef Name="TipoProducto_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PK_ScooterIDRepartidor">
+          <End Role="TB_Scooter" Type="Self.TB_Scooter" Multiplicity="1" />
+          <End Role="TB_Repartidores" Type="Self.TB_Repartidores" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_Scooter">
+              <PropertyRef Name="Scooter_ID" />
+            </Principal>
+            <Dependent Role="TB_Repartidores">
+              <PropertyRef Name="ScooterID_Repartidor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DB_Parcial2Entities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="TB_Clientes" EntityType="Self.TB_Clientes" />
+          <EntitySet Name="TB_DetallePedidos" EntityType="Self.TB_DetallePedidos" />
+          <EntitySet Name="TB_Ingredientes" EntityType="Self.TB_Ingredientes" />
+          <EntitySet Name="TB_Inventario" EntityType="Self.TB_Inventario" />
+          <EntitySet Name="TB_Mantenimientos" EntityType="Self.TB_Mantenimientos" />
+          <EntitySet Name="TB_Modo" EntityType="Self.TB_Modo" />
+          <EntitySet Name="TB_Pedidos" EntityType="Self.TB_Pedidos" />
+          <EntitySet Name="TB_Precios" EntityType="Self.TB_Precios" />
+          <EntitySet Name="TB_Premios" EntityType="Self.TB_Premios" />
+          <EntitySet Name="TB_Productos" EntityType="Self.TB_Productos" />
+          <EntitySet Name="TB_Repartidores" EntityType="Self.TB_Repartidores" />
+          <EntitySet Name="TB_Scooter" EntityType="Self.TB_Scooter" />
+          <EntitySet Name="TB_Tamanio" EntityType="Self.TB_Tamanio" />
+          <EntitySet Name="TB_TipoProductos" EntityType="Self.TB_TipoProductos" />
+          <EntitySet Name="TB_Ventas" EntityType="Self.TB_Ventas" />
+          <AssociationSet Name="FK_ClienteIDDetalleP" Association="Self.FK_ClienteIDDetalleP">
+            <End Role="TB_Clientes" EntitySet="TB_Clientes" />
+            <End Role="TB_DetallePedidos" EntitySet="TB_DetallePedidos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClienteIDPedido" Association="Self.FK_ClienteIDPedido">
+            <End Role="TB_Clientes" EntitySet="TB_Clientes" />
+            <End Role="TB_Pedidos" EntitySet="TB_Pedidos" />
+          </AssociationSet>
+          <AssociationSet Name="PK_ClienteIDInventario" Association="Self.PK_ClienteIDInventario">
+            <End Role="TB_Clientes" EntitySet="TB_Clientes" />
+            <End Role="TB_Inventario" EntitySet="TB_Inventario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IngIDProducto" Association="Self.FK_IngIDProducto">
+            <End Role="TB_Ingredientes" EntitySet="TB_Ingredientes" />
+            <End Role="TB_Productos" EntitySet="TB_Productos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PrecioID" Association="Self.FK_PrecioID">
+            <End Role="TB_Precios" EntitySet="TB_Precios" />
+            <End Role="TB_Ingredientes" EntitySet="TB_Ingredientes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MantenimientoScooter" Association="Self.FK_MantenimientoScooter">
+            <End Role="TB_Mantenimientos" EntitySet="TB_Mantenimientos" />
+            <End Role="TB_Scooter" EntitySet="TB_Scooter" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ModoIDPedido" Association="Self.FK_ModoIDPedido">
+            <End Role="TB_Modo" EntitySet="TB_Modo" />
+            <End Role="TB_Pedidos" EntitySet="TB_Pedidos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PremioIDPedido" Association="Self.FK_PremioIDPedido">
+            <End Role="TB_Premios" EntitySet="TB_Premios" />
+            <End Role="TB_Pedidos" EntitySet="TB_Pedidos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductoIDPedido" Association="Self.FK_ProductoIDPedido">
+            <End Role="TB_Productos" EntitySet="TB_Productos" />
+            <End Role="TB_Pedidos" EntitySet="TB_Pedidos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RepartidorIDPedido" Association="Self.FK_RepartidorIDPedido">
+            <End Role="TB_Repartidores" EntitySet="TB_Repartidores" />
+            <End Role="TB_Pedidos" EntitySet="TB_Pedidos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TipoVentaIDPedido" Association="Self.FK_TipoVentaIDPedido">
+            <End Role="TB_Ventas" EntitySet="TB_Ventas" />
+            <End Role="TB_Pedidos" EntitySet="TB_Pedidos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PrecioIDProducto" Association="Self.FK_PrecioIDProducto">
+            <End Role="TB_Precios" EntitySet="TB_Precios" />
+            <End Role="TB_Productos" EntitySet="TB_Productos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PrecioIDV" Association="Self.FK_PrecioIDV">
+            <End Role="TB_Precios" EntitySet="TB_Precios" />
+            <End Role="TB_Ventas" EntitySet="TB_Ventas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TamanioIDProducto" Association="Self.FK_TamanioIDProducto">
+            <End Role="TB_Tamanio" EntitySet="TB_Tamanio" />
+            <End Role="TB_Productos" EntitySet="TB_Productos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TipoPID" Association="Self.FK_TipoPID">
+            <End Role="TB_TipoProductos" EntitySet="TB_TipoProductos" />
+            <End Role="TB_Productos" EntitySet="TB_Productos" />
+          </AssociationSet>
+          <AssociationSet Name="PK_ScooterIDRepartidor" Association="Self.PK_ScooterIDRepartidor">
+            <End Role="TB_Scooter" EntitySet="TB_Scooter" />
+            <End Role="TB_Repartidores" EntitySet="TB_Repartidores" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DB_Parcial2ModelStoreContainer" CdmEntityContainer="DB_Parcial2Entities1">
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="DB_Parcial2Model.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_Clientes">
+            <EntityTypeMapping TypeName="DB_Parcial2Model.TB_Clientes">
+              <MappingFragment StoreEntitySet="TB_Clientes">
+                <ScalarProperty Name="Cliente_ID" ColumnName="Cliente_ID" />
+                <ScalarProperty Name="Cliente_Nombre" ColumnName="Cliente_Nombre" />
+                <ScalarProperty Name="Cliente_Direccion" ColumnName="Cliente_Direccion" />
+                <ScalarProperty Name="Cliente_Telefono" ColumnName="Cliente_Telefono" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_DetallePedidos">
+            <EntityTypeMapping TypeName="DB_Parcial2Model.TB_DetallePedidos">
+              <MappingFragment StoreEntitySet="TB_DetallePedidos">
+                <ScalarProperty Name="DetalleP_ID" ColumnName="DetalleP_ID" />
+                <ScalarProperty Name="ClienteID_DetalleP" ColumnName="ClienteID_DetalleP" />
+                <ScalarProperty Name="DetalleP_Fecha" ColumnName="DetalleP_Fecha" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_Ingredientes">
+            <EntityTypeMapping TypeName="DB_Parcial2Model.TB_Ingredientes">
+              <MappingFragment StoreEntitySet="TB_Ingredientes">
+                <ScalarProperty Name="Ingrediente_ID" ColumnName="Ingrediente_ID" />
+                <ScalarProperty Name="PrecioIng_ID" ColumnName="PrecioIng_ID" />
+                <ScalarProperty Name="Ingredientes_Nombre" ColumnName="Ingredientes_Nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_Inventario">
+            <EntityTypeMapping TypeName="DB_Parcial2Model.TB_Inventario">
+              <MappingFragment StoreEntitySet="TB_Inventario">
+                <ScalarProperty Name="Inventario_ID" ColumnName="Inventario_ID" />
+                <ScalarProperty Name="ClienteID_Inventario" ColumnName="ClienteID_Inventario" />
+                <ScalarProperty Name="Inventario_Existencia" ColumnName="Inventario_Existencia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_Mantenimientos">
+            <EntityTypeMapping TypeName="DB_Parcial2Model.TB_Mantenimientos">
+              <MappingFragment StoreEntitySet="TB_Mantenimientos">
+                <ScalarProperty Name="Mantenimiento_ID" ColumnName="Mantenimiento_ID" />
+                <ScalarProperty Name="Mantenimiento_Descripcion" ColumnName="Mantenimiento_Descripcion" />
+                <ScalarProperty Name="Mantenimiento_KM" ColumnName="Mantenimiento_KM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_Modo">
+            <EntityTypeMapping TypeName="DB_Parcial2Model.TB_Modo">
+              <MappingFragment StoreEntitySet="TB_Modo">
+                <ScalarProperty Name="Modo_ID" ColumnName="Modo_ID" />
+                <ScalarProperty Name="Modo_Modo" ColumnName="Modo_Modo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_Pedidos">
+            <EntityTypeMapping TypeName="DB_Parcial2Model.TB_Pedidos">
+              <MappingFragment StoreEntitySet="TB_Pedidos">
+                <ScalarProperty Name="Pedido_ID" ColumnName="Pedido_ID" />
+                <ScalarProperty Name="ProductoID_Pedido" ColumnName="ProductoID_Pedido" />
+                <ScalarProperty Name="TipoVentaID_Pedido" ColumnName="TipoVentaID_Pedido" />
+                <ScalarProperty Name="Producto_Total" ColumnName="Producto_Total" />
+                <ScalarProperty Name="ModoID_Pedido" ColumnName="ModoID_Pedido" />
+                <ScalarProperty Name="ClienteID_Pedido" ColumnName="ClienteID_Pedido" />
+                <ScalarProperty Name="PremioID_Producto" ColumnName="PremioID_Producto" />
+                <ScalarProperty Name="RepartidorID_Pedido" ColumnName="RepartidorID_Pedido" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_Precios">
+            <EntityTypeMapping TypeName="DB_Parcial2Model.TB_Precios">
+              <MappingFragment StoreEntitySet="TB_Precios">
+                <ScalarProperty Name="Precio_ID" ColumnName="Precio_ID" />
+                <ScalarProperty Name="Precio_Precio" ColumnName="Precio_Precio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_Premios">
+            <EntityTypeMapping TypeName="DB_Parcial2Model.TB_Premios">
+              <MappingFragment StoreEntitySet="TB_Premios">
+                <ScalarProperty Name="Premio_ID" ColumnName="Premio_ID" />
+                <ScalarProperty Name="Premio_Premio" ColumnName="Premio_Premio" />
+                <ScalarProperty Name="Premio_Descripcion" ColumnName="Premio_Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_Productos">
+            <EntityTypeMapping TypeName="DB_Parcial2Model.TB_Productos">
+              <MappingFragment StoreEntitySet="TB_Productos">
+                <ScalarProperty Name="Producto_ID" ColumnName="Producto_ID" />
+                <ScalarProperty Name="IngredientesID_Producto" ColumnName="IngredientesID_Producto" />
+                <ScalarProperty Name="Producto_Nombre" ColumnName="Producto_Nombre" />
+                <ScalarProperty Name="PrecioID_Producto" ColumnName="PrecioID_Producto" />
+                <ScalarProperty Name="TipoProducto_ID" ColumnName="TipoProducto_ID" />
+                <ScalarProperty Name="TamanioID_Producto" ColumnName="TamanioID_Producto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_Repartidores">
+            <EntityTypeMapping TypeName="DB_Parcial2Model.TB_Repartidores">
+              <MappingFragment StoreEntitySet="TB_Repartidores">
+                <ScalarProperty Name="Repartidor_ID" ColumnName="Repartidor_ID" />
+                <ScalarProperty Name="ScooterID_Repartidor" ColumnName="ScooterID_Repartidor" />
+                <ScalarProperty Name="Repartidor_Nombre" ColumnName="Repartidor_Nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_Scooter">
+            <EntityTypeMapping TypeName="DB_Parcial2Model.TB_Scooter">
+              <MappingFragment StoreEntitySet="TB_Scooter">
+                <ScalarProperty Name="Scooter_ID" ColumnName="Scooter_ID" />
+                <ScalarProperty Name="Scooter_Descripcion" ColumnName="Scooter_Descripcion" />
+                <ScalarProperty Name="MantenimientoID_Scooter" ColumnName="MantenimientoID_Scooter" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_Tamanio">
+            <EntityTypeMapping TypeName="DB_Parcial2Model.TB_Tamanio">
+              <MappingFragment StoreEntitySet="TB_Tamanio">
+                <ScalarProperty Name="Tamanio_ID" ColumnName="Tamanio_ID" />
+                <ScalarProperty Name="Tamanio_Tamanio" ColumnName="Tamanio_Tamanio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_TipoProductos">
+            <EntityTypeMapping TypeName="DB_Parcial2Model.TB_TipoProductos">
+              <MappingFragment StoreEntitySet="TB_TipoProductos">
+                <ScalarProperty Name="TipoP_ID" ColumnName="TipoP_ID" />
+                <ScalarProperty Name="TipoP_Tipo" ColumnName="TipoP_Tipo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_Ventas">
+            <EntityTypeMapping TypeName="DB_Parcial2Model.TB_Ventas">
+              <MappingFragment StoreEntitySet="TB_Ventas">
+                <ScalarProperty Name="Venta_ID" ColumnName="Venta_ID" />
+                <ScalarProperty Name="PrecioID_Venta" ColumnName="PrecioID_Venta" />
+                <ScalarProperty Name="Venta_Precio" ColumnName="Venta_Precio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
